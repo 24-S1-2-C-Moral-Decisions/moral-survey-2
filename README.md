@@ -8,10 +8,10 @@
 ```bash
 cd survey
 # macOS
-docker run -it --rm -v '${pwd}/src':/survey -w /survey -p 3000:3000 node:20.11-slim /bin/bash
+docker run -it --rm -v './src':/survey -w /survey -p 8080:8080 node:20.11-slim /bin/bash
 
 # windows
-docker run -it --rm -v "path/to/survey/src/dir":/survey -w /survey -p 3000:3000 node:20.11-slim /bin/bash
+docker run -it --rm -v "path/to/survey/src/dir":/survey -w /survey -p 8080:8080 node:20.11-slim /bin/bash
 
 # inside docker container
 # install dependencies (only need to run once)
