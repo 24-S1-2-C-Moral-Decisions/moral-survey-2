@@ -15,6 +15,15 @@ require("bootstrap");
 require("jquery-ui-bundle");
 var _ = require('lodash');
 var introTemplate = require("../templates/introduction.html");
+var motivationSurveyTemplate = require("../templates/motivationSurvey.html");
+var mock_surveyTemplate = require("../templates/mocksurvey.html");
+var real_survey1Template = require("../templates/realsurvey1.html");
+var situation1_Template = require("../templates/situation1.html");
+var situation2_ind_Template = require("../templates/situation2_ind.html");
+var situation2_group_Template = require("../templates/situation2_group.html");
+var situation3_ind_Template = require("../templates/situation3_ind.html");
+var situation3_group_Template = require("../templates/situation3_group.html");
+var comment_Template = require("../templates/comment.html");
 var irbTemplate = require("../templates/irb.html");
 var demographicsTemplate = require("../templates/demographics.html");
 var instructionsTemplate = require("../templates/instructions.html");
@@ -39,6 +48,83 @@ module.exports = (function(exports) {
 				display_element: $("#intro"),
 				display_next_button: false,
 			},
+			SURVEY1:{
+				name: "motivationsurvey",
+				type: "display-slide",
+				template: motivationSurveyTemplate,
+				display_element: $("#motivationsurvey"),
+				display_next_button: false,
+			},
+			MOCK_SURVEY: {
+				name: "mock-survey",
+				type: "display-slide",
+				template: mock_surveyTemplate,
+				display_element: $("#mock-survey"),
+				display_next_button: false,
+			},
+			REAL_SURVEY1: {
+				name: "real-survey1",
+				type: "display-slide",
+				template: real_survey1Template,
+				display_element: $("#real-survey1"),
+				display_next_button: false,
+			},
+			SITUATION1: {
+				name: "situation1",
+				type: "display-slide",
+				template: situation1_Template,
+				display_element: $("#situation1"),
+				display_next_button: false,
+			},
+			SITUATION2_IND: {
+				name: "situation2_ind",
+				type: "display-slide",
+				template: situation2_ind_Template,
+				display_element: $("#situation2_ind"),
+				display_next_button: false,
+			},
+			SITUATION2_GROUP: {
+				name: "situation2_group",
+				type: "display-slide",
+				template: situation2_group_Template,
+				display_element: $("#situation2_group"),
+				display_next_button: false,
+			},
+			SITUATION3_IND: {
+				name: "situation3_ind",
+				type: "display-slide",
+				template: situation3_ind_Template,
+				display_element: $("#situation3_ind"),
+				display_next_button: false,
+			},
+			COMMENT: {
+				name: "comment",
+				type: "display-slide",
+				template: comment_Template,
+				display_element: $("#comment"),
+				display_next_button: false,
+			},
+			SITUATION3_GROUP: {
+				name: "situation3_group",
+				type: "display-slide",
+				template: situation3_group_Template,
+				display_element: $("#situation3_group"),
+				display_next_button: false,
+			},
+			COMMENTS: {
+				type: "display-slide",
+				template: commentsTemplate,
+				display_element: $("#comments"),
+				name: "comments",
+				finish: function(){
+					var comments = $('#commentsForm').alpaca().getValue();
+					if (Object.keys(comments).length > 0) {
+						LITW.data.submitComments({
+							comments: comments
+						});
+					}
+				}
+			},
 			INFORMED_CONSENT: {
 				name: "informed_consent",
 				type: "display-slide",
@@ -56,20 +142,6 @@ module.exports = (function(exports) {
 					LITW.data.submitDemographics(dem_data);
 				}
 			},
-			COMMENTS: {
-				type: "display-slide",
-				template: commentsTemplate,
-				display_element: $("#comments"),
-				name: "comments",
-				finish: function(){
-					var comments = $('#commentsForm').alpaca().getValue();
-					if (Object.keys(comments).length > 0) {
-						LITW.data.submitComments({
-							comments: comments
-						});
-					}
-				}
-			},
 			RESULTS: {
 				type: "call-function",
 				func: function(){
@@ -81,10 +153,17 @@ module.exports = (function(exports) {
 
 	function configureStudy() {
 		timeline.push(params.slides.INTRODUCTION);
+		timeline.push(params.slides.SURVEY1);
+		timeline.push(params.slides.MOCK_SURVEY);
+		timeline.push(params.slides.REAL_SURVEY1);
+		timeline.push(params.slides.SITUATION2_IND);
+		timeline.push(params.slides.SITUATION3_IND);
+		timeline.push(params.slides.COMMENT);
+		timeline.push(params.slides.SITUATION3_GROUP);
+		timeline.push(params.slides.RESULTS);
+		timeline.push(params.slides.COMMENTS);
 		timeline.push(params.slides.INFORMED_CONSENT);
 		timeline.push(params.slides.DEMOGRAPHICS);
-		timeline.push(params.slides.COMMENTS);
-		timeline.push(params.slides.RESULTS);
 	}
 
 	function calculateResults() {
@@ -199,5 +278,7 @@ module.exports = (function(exports) {
 	exports.study.params = params
 
 })( window.LITW = window.LITW || {} );
+
+
 
 
