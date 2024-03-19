@@ -83,6 +83,7 @@ body {
 }
 
 .irb-paragraph-header {
+	font-size: 20px;
 	display: inline;
 }
 
@@ -688,4 +689,96 @@ a:active {
 	margin: 5px;
 	max-width: 99%;
 	height: 98%
+}
+
+.survey1-paragraph-header{
+	font-size: 20px;
+}
+.content{
+	font-family: "Times New Roman", Times, serif;
+	font-size:19px;
+	margin-top: 5px;
+	width: 100%;
+}
+.survey1-paragraph-body{
+	font-family: "Times New Roman", Times, serif;
+	font-size: 19px;
+	line-height: 30px;
+	padding: 0;
+	width: 100%;
+}
+.line{
+	text-decoration: underline;
+}
+.lar-font{
+	font-size: 22px;
+}
+.lar-font2{
+	font-size: 27px;
+}
+.survey1-img{
+	width: 100%;
+	height: 30%;
+	margin-bottom: 50px;
+}
+.answer{
+	border: none;
+	margin-top: 20px;
+	padding-left: 0;
+}
+.mid-font{
+	font-size: 20px;
+	font-family: "Times New Roman", Times, serif;
+}
+.answer p{
+	margin-bottom: 0;
+}
+.room{
+	display: block;
+	width: 100%;
+	height: 200px;
+	float: left;
+}
+.YA-room{
+	display: block;
+	width: 100%;
+	height: 80px;
+	float: left;
+}
+.foot{
+	display: block;
+	width: 100%;
+	height: 35%;
+}
+.cho{
+	font-size: 1.5vh;
+	padding-top: 3vh;
+	margin-left: 5px;
+	text-align: center;
+	width: 19%;
+	height:10vh;
+}
+.cho2{
+	font-size: 1.5vh;
+	padding-top: 3vh;
+	margin-left: 5px;
+	text-align: center;
+	width: 19%;
+	height:10vh;
+}
+.form{
+	width: 100%;
+	height: auto;
+}
+.YA-ans{
+	display: none;
+	margin-top: 20px;
+}
+.NA-ans{
+	display: none;
+	margin-top: 20px;
+}
+.hide-show{
+	margin-top: 5%;
+	display: none;
 }
