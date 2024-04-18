@@ -17,10 +17,18 @@
 })()
 
 document.getElementById('option1').addEventListener('click', function() {
+    const labels = document.querySelectorAll('.YA-NA');
+    labels.forEach(label => {
+        label.style.pointerEvents = "none"
+    });
     document.getElementById('collapseExample2').classList.remove('show');
 });
 
 document.getElementById('option2').addEventListener('click', function() {
+    const labels = document.querySelectorAll('.YA-NA');
+    labels.forEach(label => {
+        label.style.pointerEvents = "none"
+    });
     document.getElementById('collapseExample1').classList.remove('show');
 });
 
@@ -33,7 +41,13 @@ document.getElementById('YA-option2').addEventListener('click', function() {
     document.getElementById('collapseExample1').classList.remove('show');
 });
 
+document.getElementById('train-option1').addEventListener('click', function() {
+    document.getElementById('train-collapseExample2').classList.remove('show');
+});
 
+document.getElementById('train-option2').addEventListener('click', function() {
+    document.getElementById('train-collapseExample1').classList.remove('show');
+});
 
 document.getElementById('NA-option1').addEventListener('click', function() {
     document.getElementById('NA-collapseExample2').classList.remove('show');

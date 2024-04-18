@@ -1810,6 +1810,16 @@
                 useData: !0
             });
         },
+        241: (t, e, i) => {
+            var n = i(202);
+            t.exports = (n.default || n).template({
+                compiler: [ 8, ">= 4.3.0" ],
+                main: function(t, e, i, n, s) {
+                    return information_template;
+                },
+                useData: !0
+            });
+        },
         231: (t, e, i) => {
             var n = i(202);
             t.exports = (n.default || n).template({
@@ -1900,6 +1910,7 @@
                 useData: !0
             });
         },
+
         603: (t, e, i) => {
             var n = i(202);
             t.exports = (n.default || n).template({
@@ -16922,7 +16933,7 @@
         },
         330: (t, e, i) => {
             window.$ = window.jQuery = i(609), i(734), i(555), i(486);
-            var n, s, r, o = i(230), p = i(231),m = i(232), q = i(233), v = i(235), b = i(236), f = i(237), g =i(238), j =i(239) ,k = i(240), a = i(603), l = i(631), u = (i(700), i(553)), c = i(234), h = i(304), d = i(301);
+            var n, s, r, o = i(230), p = i(231),m = i(232), q = i(233), v = i(235), b = i(236), f = i(237), g =i(238), j =i(241) ,k = i(240), a = i(603), l = i(631), u = (i(700), i(553)), c = i(234), h = i(304), d = i(301);
             i(267), i(115), t.exports = (n = window.LITW = window.LITW || {}, s = [],  
             r = {
                 study_id: "TO_BE_ADDED_IF_USING_LITW_INFRA",
@@ -16935,6 +16946,13 @@
                         template: o,
                         display_element: $("#intro"),
                         display_next_button: !1
+                    },
+                    INFORMATION: {
+                        name: "information",
+                        type: "display-slide",
+                        template: j,
+                        display_element: $("#infor"),
+                        display_next_button: !1,
                     },
                     SURVEY1:{
                         name: "motivationsurvey",
@@ -17055,7 +17073,7 @@
                     e in t ? i[e] = t[e] : i.en = t.en, $.i18n().load(i).done(function() {
                         $("head").i18n(), $("body").i18n(), LITW.utils.showSlide("img-loading"), 
                         jsPsych.pluginAPI.preloadImages(r.preLoad, function() {
-                            s.push(r.slides.INTRODUCTION), s.push(r.slides.SURVEY1), s.push(r.slides.MOCK_SURVEY), s.push(r.slides.REAL_SURVEY1),
+                            s.push(r.slides.INFORMATION), s.push(r.slides.SURVEY1), s.push(r.slides.REAL_SURVEY1),
                             s.push(r.slides.SITUATION2_IND),s.push(r.slides.SITUATION3_IND), s.push(r.slides.COMMENT), s.push(r.slides.SITUATION3_GROUP), s.push(r.slides.RESULTS),
                             s.push(r.slides.COMMENTS),
                             s.push(r.slides.INFORMED_CONSENT), 

@@ -17,6 +17,7 @@ var situation1_template = `
     </div>
 
     <div class="survey1-paragraph">
+    <span class="survey1-paragraph-body mid-font" data-i18n='litw-sur2-body-ans-text'></span>
       <p class="survey1-paragraph-body lar-font" data-i18n='litw-sur2-body-idm-p3' style="font-weight: bolder"></p>
       <form id="decisionForm" class="form needs-validation" novalidate>
         <input type="radio" class="btn-check form-check-input" value="YA" name="options" id="option1" autocomplete="off" required>
@@ -27,30 +28,20 @@ var situation1_template = `
           <p class="survey1-paragraph-body lar-font" data-i18n='litw-sur2-body-cho-p1' style="font-weight: bolder;margin-top: 130px"></p>
 
           <input type="radio" class="btn-check form-check-input" name="decision" id="option3" autocomplete="off" required>
-          <label class="btn  btn-light cho form-check-label" for="option3" data-i18n='litw-sur2-body-cho-la1'></label>
+          <label class="btn  btn-light first-cho form-check-label" for="option3" data-i18n='litw-sur2-body-cho-la1'></label>
           <input type="radio" class="btn-check form-check-input" name="decision" id="option4" autocomplete="off" required>
-          <label class="btn  btn-light cho form-check-label" for="option4" data-i18n='litw-sur2-body-cho-la2'></label>
+          <label class="btn  btn-light first-cho form-check-label" for="option4" data-i18n='litw-sur2-body-cho-la2'></label>
           <input type="radio" class="btn-check form-check-input" name="decision" id="option5" autocomplete="off" required>
-          <label class="btn btn-light cho form-check-label" for="option5" data-i18n='litw-sur2-body-cho-la3'></label>
+          <label class="btn btn-light first-cho form-check-label" for="option5" data-i18n='litw-sur2-body-cho-la3'></label>
           <input type="radio" class="btn-check form-check-input" name="decision" id="option6" autocomplete="off" required>
-          <label class="btn btn-light cho form-check-label" for="option6" data-i18n='litw-sur2-body-cho-la4'></label>
+          <label class="btn btn-light first-cho form-check-label" for="option6" data-i18n='litw-sur2-body-cho-la4'></label>
           <input type="radio" class="btn-check form-check-input" name="decision" id="option7" autocomplete="off" required>
-          <label class="btn btn-light cho form-check-label" for="option7" data-i18n='litw-sur2-body-cho-la5'></label>
+          <label class="btn btn-light first-cho form-check-label" for="option7" data-i18n='litw-sur2-body-cho-la5'></label>
           <div class="invalid-feedback">
             Please answer the question.
           </div>
         </div>
-        <button type="submit" class="btn btn-secondary custom" id="sub1" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; width: auto;" onclick="
-        if(this.form.checkValidity()) {
-          if(document.getElementById('option1').checked)
-          {document.getElementById('ind').style.display = 'none';
-            document.getElementById('YA-group').style.display = 'block';
-            window.scrollTo({top: 0});}
-          else {
-            document.getElementById('ind').style.display = 'none';
-            document.getElementById('NA-group').style.display = 'block';
-            window.scrollTo({top: 0});}
-        }else {  this.form.stopPropagation(); } return false;">Next</button>
+        <button type="submit" class="btn btn-secondary custom" id="sub1" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; width: auto;" >Next</button>
       </form>
     </div>
   </div>
@@ -266,6 +257,15 @@ var situation1_template = `
         document.getElementById('NA-collapseExample1').classList.remove('show');
       });
 
+    const label_YA_NA = document.querySelectorAll('.first-cho');
+    label_YA_NA.forEach(labels => {
+      labels.addEventListener('click', function() {
+         label_YA_NA.forEach(label => {
+            label.style.pointerEvents = "none"
+        });
+      });
+    });
+    
     const label_YA = document.querySelectorAll('.cho');
     label_YA.forEach(label => {
       label.addEventListener('click', function() {
@@ -295,7 +295,21 @@ var situation1_template = `
         }
       });
     });
- 
+    
+    var subForm = document.getElementById('decisionForm');
+    var button1  = document.getElementById('sub1');
+    subForm.addEventListener('click', function() {
+        if(document.getElementById('option1').checked && subForm.querySelector('input[name="decision"]:checked')){
+                document.getElementById('YA').style.display = 'block';
+                document.getElementById('NA').style.display = 'none';
+                button1.style.display='none';
+        }
+        if(document.getElementById('option2').checked && subForm.querySelector('input[name="decision"]:checked')){
+            document.getElementById('YA').style.display = 'none';
+            document.getElementById('NA').style.display = 'block';
+            button1.style.display='none';
+        }
+    });
 
 </script>
     
