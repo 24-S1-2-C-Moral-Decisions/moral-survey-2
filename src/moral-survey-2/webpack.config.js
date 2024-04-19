@@ -16,12 +16,12 @@ var config = {
                 exposes: "jquery",
               },
             },
-            {
-              loader: 'expose-loader',
-              options: {
-                exposes: '$',
-              },
-            }
+            // {
+            //   loader: 'expose-loader',
+            //   options: {
+            //     exposes: '$',
+            //   },
+            // }
             ]
         },
         {
